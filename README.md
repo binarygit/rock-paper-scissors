@@ -13,18 +13,32 @@ reports result at the end.
 
 pseudocode: 
 
-make a func that getsinput from user and passes it into another function
-that turns the input into lowecase letters
-create an array containing rock, paper, scissors
-use math.random to select one of the three and return it
-In func(P.S, C.S) input getfunc and select function 
-in select func create logic for win and lose
-logic:
-use a switch statement, where the human's input is taken into account and based
-on that results are drawn. Eg: if human selects rock, enter switch 1, case 1, 
-if comp is rock then log draw. and so on. 
-Create two var with name scoreTrackuser and comp in game() 
-Create a loop that runs select() 5 times
-Write a if statement into the loop which 
-if the str.index finds user then user++, if not then comp++
-Write if statement out of the loop, in which the one with higher no. wins.
+
+create getInput() that gets input from user 
+and pass it to tolowercase() which turns the input into lowercase
+create computerPlay() in which initialize choices array containing the 3 choices
+computerPlay should return a random choice
+create gameLogic() that should be fed with computerPlay() and tolowercase()
+
+for Logic: 
+create three switch statements that are entered when user selects
+1. rock 2. paper 3. scissors
+Inside each create three cases in which comp selects
+1. rock 2. paper 3. scissors 
+Eg: if user selects rock, enter switch 1, go to case one where
+comp selects rock: display message "tie"
+
+create game() that is fed gameLogic()
+Inside game(), create two var: userCount and compCount
+and create a for loop that loops 5 times 
+inside which gameLogic() is run
+right below gameLogic() (inside loop) create a comparision statement
+that checks whether the string "user" was included in the message returned
+by gameLogic() or not
+if yes, userCount++
+if no, compCount--
+After loop is run, create a comparision statement which checks for higher count
+if userCount > compCount: user wins
+else comp wins.
+Display winner. 
+
