@@ -42,3 +42,11 @@ if userCount > compCount: user wins
 else comp wins.
 Display winner. 
 
+May 11, 2021 (6:40)
+
+This was actually very intresting. I found quickly that I had overlooked many
+things while writing the pseudocode. One of the main things was that you can't
+use switch as a comparision statement, like I had planned to. 
+The second thing that I learned was that I don't actually read well, if I had 
+only read the instructions clearly, I might have saved myself say 3 hours 
+worth of trouble. 

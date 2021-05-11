@@ -1,47 +1,54 @@
+// Function to get human's input
 function getInput() {
 
     return prompt("Enter your choice").toLowerCase();
 }
 
+// Function to create computer's choice
 function computerPlay() {
     let choices = ["rock", "paper", "scissors"];
 
     return choices[Math.floor((Math.random() * 3))];
 }
 
+// The algorithm that runs the whole game, getInput() and computerPlay() are fed into in
 function gameLogic(playerSelection, computerSelection) {
 
-    if(playerSelection === 'rock') {
-        
-        if(computerSelection === 'rock') {
+let playerChoice = playerSelection();
+let computerChoice = computerSelection();
+
+// The humanChoice is taken as the choice which our computer will look at first to figure out who won
+    if(playerChoice === 'rock') {
+
+        if(computerChoice === 'rock') {
             return("Tie");
-        } else if(computerSelection === 'paper') {
+        } else if(computerChoice === 'paper') {
             return("Computer wins");
-        } else if(computerSelection === 'scissors') {
+        } else if(computerChoice === 'scissors') {
             return("Human wins");
         }
 
 
-    } else if(playerSelection === 'paper') {
-        
-        if(computerSelection === 'paper') {
+    } else if(playerChoice === 'paper') {
+
+        if(computerChoice === 'paper') {
             return("Tie");
-        } else if(computerSelection === 'rock') {
+        } else if(computerChoice === 'rock') {
             return("Human wins");
-        } else if(computerSelection === 'scissors') {
+        } else if(computerChoice === 'scissors') {
             return("Computer wins");
         } else {
             return("Don't be naughty! you know that weapon isn't allowed");
         }
 
 
-    } else if(playerSelection === 'scissors') {
+    } else if(playerChoice === 'scissors') {
 
-        if(computerSelection === 'scissors') {
+        if(computerChoice === 'scissors') {
             return("Tie");
-        } else if(computerSelection === 'rock') {
+        } else if(computerChoice === 'rock') {
             return("Computer wins");
-        } else if(computerSelection === 'paper') {
+        } else if(computerChoice === 'paper') {
             return("Human wins");
         } else {
             return("Don't be naughty! you know that weapon isn't allowed");
@@ -53,74 +60,49 @@ function gameLogic(playerSelection, computerSelection) {
 
 }
 
-function initializer() {
-    game(gameLogic(getInput, computerPlay));
-}
-
-
-function toWork(logi) {
-
-
-}
-for(let i=0; i<3; i++){
-    let ab = gameLogic(getInput(), computerPlay());
-}
-
-
-function game(logic) {
-    let humanCount;
-    let computerCount;
+function game() {
+    let humanCount = 0; //When this and the below var were not initialized i.e = 0, the result returned was NaN
+    let computerCount = 0;
+    let shortCurcuitAnnouncer;
+    let logicStorer;
 
     for(let i = 0; i<5; i++) {
-        let logicStorer = logic;
-        console.log(logicStorer);
 
-        if(logicStorer.indexOf("Human")) {
+         logicStorer = gameLogic(getInput, computerPlay);
+         console.log(logicStorer);
+
+         // This is the score tracker
+        if(logicStorer.indexOf("Human") != -1) {
             ++humanCount;
-        } else if(logicStorer.indexOf("Computer")) {
+        } else if(logicStorer.indexOf("Computer") != -1) {
             ++computerCount;
         }
+
+        // if either human or computer gets 3 points, the game is won
+        if(humanCount === 3){
+          shortCurcuitAnnouncer = console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`)
+          console.log("Human Wins");
+          return //The code will need to exit the function, if it doesn't, even with game over..the loop will run
+        } else if(computerCount === 3){
+          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
+          console.log("Computer Wins");
+          return
+        }
+
+      }
+
+// This is what decides who won the game
+        if(humanCount > computerCount) {
+          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
+          console.log("Human Wins");
+      } else if(computerCount > humanCount) {
+          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
+          console.log("Computer Wins");
+      } else {
+          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
+          console.log("It's a tie!");
+      }
     }
 
-    if(humanCount > computerCount) {
-        console.log("Human Wins");
-    } else if(computerCount > humanCount) {
-        console.log("Computer Wins");
-    } else {
-        console.log("It's a tie!");
-    }
-}
-
-// let a = 8;
-// let b =5;
-
-// let z = function() {
-//     switch(a == 2) {
-//         case (b == 5):
-//             console.log("yo")
-//             break;
-//     }
-//     console.log("shit");
-// }
-
-// console.log(z());
-
-// let a = function() {
-//     return("hey");
-// };
-
-
-// let b = function(para) {
-    
-    
-//     for(let i=0; i<3; i++) {
-//         let aa =para();
-//         console.log(i);
-//         console.log(aa.length);
-//     }
-
-// }
-
-// b(a);
-
-
+// Game Initializer
+game();
