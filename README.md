@@ -50,3 +50,29 @@ use switch as a comparision statement, like I had planned to.
 The second thing that I learned was that I don't actually read well, if I had 
 only read the instructions clearly, I might have saved myself say 3 hours 
 worth of trouble. 
+
+May 15, 2021 (8:30)
+
+Need to make a GUI to play the game 
+have buttons that you can click and choose either rock, paper or scissors
+and display who won using the DOM
+
+to do:
+
+1. remove the game()
+2. Create three buttons, one for each selection
+3. Add an event listener to the buttons that calls gameLogic() and returns with the correct human input
+4. Add a div for displaying results, that uses the DOM to display the results
+5. Display the running score, annouce a winner who gets to 5 wins first
+
+
+pseudo-code:
+
+1. Create buttons in the HTML and a div beneath those html
+2. Add an event listener to each buttons, that should pass the corresponding value to the getInput()
+3. run gameLogic()
+
+May 17, 2021 (7:00)
+
+The game does run, but I've now to build a "marketable" GUI. I'm not completely sure of how to structure all of it, or style the GUI but let's see. 
+ 

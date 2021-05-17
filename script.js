@@ -1,23 +1,9 @@
-// Function to get human's input
-function getInput() {
-
-    return prompt("Enter your choice").toLowerCase();
-}
-
-// Function to create computer's choice
-function computerPlay() {
-    let choices = ["rock", "paper", "scissors"];
-
-    return choices[Math.floor((Math.random() * 3))];
-}
-
-// The algorithm that runs the whole game, getInput() and computerPlay() are fed into in
+// The algorithm that runs the whole game, getHumanInput() and getComputerInput() are fed into it
 function gameLogic(playerSelection, computerSelection) {
 
-let playerChoice = playerSelection();
+let playerChoice = playerSelection;
 let computerChoice = computerSelection();
 
-// The humanChoice is taken as the choice which our computer will look at first to figure out who won
     if(playerChoice === 'rock') {
 
         if(computerChoice === 'rock') {
@@ -37,9 +23,7 @@ let computerChoice = computerSelection();
             return("Human wins");
         } else if(computerChoice === 'scissors') {
             return("Computer wins");
-        } else {
-            return("Don't be naughty! you know that weapon isn't allowed");
-        }
+        } 
 
 
     } else if(playerChoice === 'scissors') {
@@ -50,59 +34,111 @@ let computerChoice = computerSelection();
             return("Computer wins");
         } else if(computerChoice === 'paper') {
             return("Human wins");
-        } else {
-            return("Don't be naughty! you know that weapon isn't allowed");
-        }
+        } 
+
 
     } else {
         return("Don't be naughty! you know that weapon isn't allowed");
     }
+    
 
 }
 
-function game() {
-    let humanCount = 0; //When this and the below var were not initialized i.e = 0, the result returned was NaN
-    let computerCount = 0;
-    let shortCurcuitAnnouncer;
-    let logicStorer;
+function onButtonClick(e) {
 
-    for(let i = 0; i<5; i++) {
+    let input = getHumanInput(e);
+    let logicStorer = gameLogic(input, getComputerInput);
+    pointKeeper(logicStorer);
 
-         logicStorer = gameLogic(getInput, computerPlay);
-         console.log(logicStorer);
+}
 
-         // This is the score tracker
-        if(logicStorer.indexOf("Human") != -1) {
-            ++humanCount;
-        } else if(logicStorer.indexOf("Computer") != -1) {
-            ++computerCount;
-        }
+function getHumanInput(e) {
 
-        // if either human or computer gets 3 points, the game is won
-        if(humanCount === 3){
-          shortCurcuitAnnouncer = console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`)
-          console.log("Human Wins");
-          return //The code will need to exit the function, if it doesn't, even with game over..the loop will run
-        } else if(computerCount === 3){
-          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
-          console.log("Computer Wins");
-          return
-        }
+    const clickedBtn = document.querySelector(`button[id="${e.explicitOriginalTarget.id}"]`);
+    
+    if(!clickedBtn) return;
+    else return clickedBtn.id;   
 
-      }
+}
 
-// This is what decides who won the game
-        if(humanCount > computerCount) {
-          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
-          console.log("Human Wins");
-      } else if(computerCount > humanCount) {
-          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
-          console.log("Computer Wins");
-      } else {
-          console.log(`The score is Human to computer: ${humanCount} to ${computerCount}`);
-          console.log("It's a tie!");
-      }
+
+function getComputerInput() {
+    let choices = ["rock", "paper", "scissors"];
+
+    return choices[Math.floor((Math.random() * 3))];
+}
+
+
+function pointKeeper(matchWinner) {
+
+    if(matchWinner.indexOf("Human") != -1) {
+        ++humanPoints;
+        matchWinnerDisplayer("Human");
+    } else if(matchWinner.indexOf("Computer") != -1) {
+        ++computerPoints;
+        matchWinnerDisplayer("Computer");
+    } else if(matchWinner.indexOf("Tie") != -1) {
+        matchWinnerDisplayer("Tie");
     }
+    
+    if(humanPoints == 5) {
+        pointsResetter();
+        verdictAnnouncer("Human");
+    } else if(computerPoints == 5) {
+        pointsResetter();
+        verdictAnnouncer("Computer")
+    }
+    
+}
 
-// Game Initializer
-game();
+function matchWinnerDisplayer(str) {
+    let para;
+    
+    para = document.createElement('p');
+    para.textContent = `Point to ${str}`;
+    div.appendChild(para);
+}
+
+function pointsResetter() {
+    humanPoints = 0;
+    computerPoints = 0;
+}
+
+function verdictAnnouncer(winner) {
+    body.remove();
+
+    const html = document.querySelector("html");
+    const bodyNew = document.createElement("body");
+    const div = document.createElement("div");
+    const para = document.createElement("p");
+
+    para.textContent = `${winner} Wins`;
+
+    html.appendChild(bodyNew);
+    bodyNew.appendChild(div);
+    div.appendChild(para);
+};
+
+
+let div = document.createElement("div");
+let body = document.querySelector("body");
+
+body.appendChild(div);
+
+let humanPoints = 0;
+let computerPoints = 0;
+
+window.addEventListener('click', onButtonClick);
+
+
+
+
+
+
+
+
+
+    
+
+
+
