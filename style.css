@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+html {
+font-size: 62.5%;
+}
+
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+font-size: 1.6rem;
+}
+
+.none {
+    display: none;
+}
+
+.startBtnStyle {
+padding: 50px;
+font-size: 3rem;
+border: 2px dotted red;
+background-color: white;
+cursor: pointer;
+}
+
+.startBtnStyle:hover {
+transform: scale(1.1);
+background-color: black;
+border-color: #ffc600;
+box-shadow: 0 0 1rem #ffc600;
+border-style: solid;
+}
+
+.startBtnReplacerStyle {
+transform: scale(1.1);
+background-color: black;
+border: 2px solid #ffc600;
+box-shadow: 0 0 1rem #ffc600;
+padding: 50px;
+animation: animate 4.8s 0.5s;
+animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+    0% {transform: scale(0.9)}
+    6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10} 
+    12.5% {transform: scale(0.9)}
+    25% {transform: scale(1)}
+    50% {transform: scale(1); border-color: #d8af1a; border-shadow: 0 0 1rem #d8af1a}
+    65.83% {transform: scale(1.6)}
+    100% {transform: scale(1.8); border-color: #bc5025; border-shadow: 0 0 1rem #bc5025;}
+}
+
+.transitionStop-1 {
+    background: black; 
+    padding: 50px; 
+    transform: scale(4.4);
+    border: 2px solid #bc5025;
+    box-shadow: 0 0 1rem #bc5025;
+}
+
+.transition-2 {
+    animation: button-swell 10s;
+}
+
+@keyframes button-swell {
+    0%{transform: scale(4.4); }
+    80%{border-color: red; box-shadow: red;}
+    100% {transform: scale(32);}
+}
+
+

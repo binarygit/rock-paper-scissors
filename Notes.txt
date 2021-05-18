@@ -1,0 +1,5 @@
+May 18, 2021 (14:50)
+
+Made the intro animation. It took me this whole day, about 6 hours of work. It has come off nicely. 
+However, I've yet to figure out how to use Timeset() properly and that is messing things up for me. 
+Hopefully I'll be done by tomorrow and can show to my friends. 
