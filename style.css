@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
 html {
 font-size: 62.5%;
 }
 
-body {
+.body--at-intro {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -17,11 +19,7 @@ min-height: 100vh;
 font-size: 1.6rem;
 }
 
-.none {
-    display: none;
-}
-
-.startBtnStyle {
+.st-btn {
 padding: 50px;
 font-size: 3rem;
 border: 2px dotted red;
@@ -29,7 +27,7 @@ background-color: white;
 cursor: pointer;
 }
 
-.startBtnStyle:hover {
+.st-btn:hover {
 transform: scale(1.1);
 background-color: black;
 border-color: #ffc600;
@@ -37,42 +35,123 @@ box-shadow: 0 0 1rem #ffc600;
 border-style: solid;
 }
 
-.startBtnReplacerStyle {
+.st-btn--on-click-change {
 transform: scale(1.1);
 background-color: black;
 border: 2px solid #ffc600;
 box-shadow: 0 0 1rem #ffc600;
 padding: 50px;
-animation: animate 4.8s 0.5s;
+animation: animate-1 4.8s 0.5s;
 animation-fill-mode: forwards;
 }
 
-@keyframes animate {
-    0% {transform: scale(0.9)}
-    6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10} 
-    12.5% {transform: scale(0.9)}
-    25% {transform: scale(1)}
-    50% {transform: scale(1); border-color: #d8af1a; border-shadow: 0 0 1rem #d8af1a}
-    65.83% {transform: scale(1.6)}
-    100% {transform: scale(1.8); border-color: #bc5025; border-shadow: 0 0 1rem #bc5025;}
+
+
+@keyframes animate-1 {
+0% {transform: scale(0.9)}
+6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10} 
+12.5% {transform: scale(0.9)}
+25% {transform: scale(1)}
+50% {transform: scale(1); border-color: #d8af1a; border-shadow: 0 0 1rem #d8af1a}
+65.83% {transform: scale(1.6)}
+100% {transform: scale(1.8); border-color: #bc5025; border-shadow: 0 0 1rem #bc5025;}
 }
 
-.transitionStop-1 {
-    background: black; 
-    padding: 50px; 
-    transform: scale(4.4);
-    border: 2px solid #bc5025;
-    box-shadow: 0 0 1rem #bc5025;
+.st-btn--transition-stop-1 {
+background: black; 
+padding: 50px; 
+transform: scale(4.4);
+border: 2px solid #bc5025;
+box-shadow: 0 0 1rem #bc5025;
 }
 
-.transition-2 {
-    animation: button-swell 10s;
+.st-btn--transition-closing-act {
+animation: animate-2 10s;
 }
 
-@keyframes button-swell {
-    0%{transform: scale(4.4); }
-    80%{border-color: red; box-shadow: red;}
-    100% {transform: scale(32);}
+@keyframes animate-2 {
+0%{transform: scale(4.4); }
+80%{border-color: red; box-shadow: red;}
+100% {transform: scale(32);}
 }
 
+
+/* After intro finish */
+
+
+.body--after-intro {
+background-color: #000;
+color: #fff;
+font-size: 1.6rem;
+font-family: 'Crimson Text', serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/* header */
+
+.header{
+text-align: center; 
+padding: 20px;
+color: white;
+}
+
+.header__p {
+font-size: 3rem;
+}
+
+.header__h1 {
+font-size: 5rem;
+word-spacing: 5px;
+}
+
+/* header-animate */
+
+.header__p--animate {
+animation: fade-in 3s ease-out;
+}
+
+.header__h1--animate {
+animation: fade-in 3s ease-in 1s;
+
+}
+
+@keyframes fade-in {
+0%{color: #000}
+100%{color: #fff}
+}
+
+/* score-board */
+
+.score-board {
+text-align: center;
+font-size: 2.8rem;
+padding-bottom: 10px;
+
+}
+
+.score-board__h3 {
+font-size: 3.5rem;
+padding: 15px;
+}
+
+.score-board__comp-block{
+margin-left: 50px;
+}
+
+.score-board__human-block {
+margin-right: 50px;
+}
+
+.score-board__comp-block, .score-board__human-block {
+display: inline-block;
+padding: 30px;
+}
+
+.score-board__font-awe {
+color: white;
+font-size: 8rem;
+padding: 10px 10px;
+}
 
