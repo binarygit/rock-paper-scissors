@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;1,600&display=swap');
 
 *{
 margin: 0;
@@ -10,7 +10,12 @@ html {
 font-size: 62.5%;
 }
 
-.body--at-intro {
+/* For Intro */
+.div--none {
+display: none;
+}
+
+.body__before-intro {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -35,19 +40,17 @@ box-shadow: 0 0 1rem #ffc600;
 border-style: solid;
 }
 
-.st-btn--on-click-change {
+.st-btn-replacer {
 transform: scale(1.1);
 background-color: black;
 border: 2px solid #ffc600;
 box-shadow: 0 0 1rem #ffc600;
 padding: 50px;
-animation: animate-1 4.8s 0.5s;
+animation: intro-start 4.8s 0.5s;
 animation-fill-mode: forwards;
 }
 
-
-
-@keyframes animate-1 {
+@keyframes intro-start {
 0% {transform: scale(0.9)}
 6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10} 
 12.5% {transform: scale(0.9)}
@@ -57,7 +60,7 @@ animation-fill-mode: forwards;
 100% {transform: scale(1.8); border-color: #bc5025; border-shadow: 0 0 1rem #bc5025;}
 }
 
-.st-btn--transition-stop-1 {
+.transition-to-big-box {
 background: black; 
 padding: 50px; 
 transform: scale(4.4);
@@ -65,21 +68,19 @@ border: 2px solid #bc5025;
 box-shadow: 0 0 1rem #bc5025;
 }
 
-.st-btn--transition-closing-act {
-animation: animate-2 10s;
+.transition-big-box-swell {
+animation: box-swell 10s;
 }
 
-@keyframes animate-2 {
+@keyframes box-swell {
 0%{transform: scale(4.4); }
 80%{border-color: red; box-shadow: red;}
 100% {transform: scale(32);}
 }
 
+/* After Intro */
 
-/* After intro finish */
-
-
-.body--after-intro {
+.body__after-intro {
 background-color: #000;
 color: #fff;
 font-size: 1.6rem;
@@ -94,7 +95,7 @@ align-items: center;
 .header{
 text-align: center; 
 padding: 20px;
-color: white;
+
 }
 
 .header__p {
@@ -102,24 +103,35 @@ font-size: 3rem;
 }
 
 .header__h1 {
-font-size: 5rem;
+font-size: 7rem;
 word-spacing: 5px;
+}
+
+.header--play-again-black {
+    color: black;
 }
 
 /* header-animate */
 
-.header__p--animate {
-animation: fade-in 3s ease-out;
-}
-
-.header__h1--animate {
+.header--fade-in-animation {
+color: #000;
 animation: fade-in 3s ease-in 1s;
-
+animation-fill-mode: forwards;
 }
 
 @keyframes fade-in {
 0%{color: #000}
 100%{color: #fff}
+}
+
+.header--fade-out-animation {
+    animation: fade-out 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+    0% {color: #fff}
+    100% {color: #000};
 }
 
 /* score-board */
@@ -129,11 +141,21 @@ text-align: center;
 font-size: 2.8rem;
 padding-bottom: 10px;
 
+
 }
 
 .score-board__h3 {
 font-size: 3.5rem;
 padding: 15px;
+font-style: italic;
+}
+
+.score-board__h3--red {
+    color: #FF7F7F;
+}
+
+.score-board__h3--blue {
+    color: #468fea;
 }
 
 .score-board__comp-block{
@@ -149,9 +171,183 @@ display: inline-block;
 padding: 30px;
 }
 
+/* score-board__font-awe */
 .score-board__font-awe {
-color: white;
 font-size: 8rem;
 padding: 10px 10px;
 }
 
+.score-board__font-awe-comp--marine {
+    color: #4000FF;
+}
+
+.score-board__font-awe-comp--savory {
+    color: #4B61D1;
+}
+
+.score-board__font-awe-comp--egypt {
+    color:#345cdd;
+}
+
+.score-board__font-awe-human--imperial {
+    color: #ED2939;
+}
+
+.score-board__font-awe-human--cardinal {
+    color: 	#C51E3A;
+}
+
+.score-board__font-awe-human--crimson {
+    color: #DC143C;
+}
+
+
+/* score-board animation */
+.score-board--animate {
+animation: appear 3s;
+animation-fill-mode: forwards;
+animation-delay:2s ;
+color: #000;
+}
+
+@keyframes appear {
+0%{color: #000}
+100%{color: #fff}
+}
+
+/* Choices */
+
+.choices {
+text-align: center;
+margin-top: 30px;
+}
+
+.choices__rock,.choices__paper,.choices__scissor {
+padding: 35px;
+background-color: rgba(255,255,255,0.2);
+border: 2px solid #fff;
+margin-right: 10px;
+cursor: pointer;
+}
+
+.choices__rock:hover,.choices__paper:hover,.choices__scissor:hover {
+border-color: rgb(167, 41, 41);
+border-radius: 5px;   
+color: rgb(216, 49, 49);
+}
+
+.choices__font-awe {
+font-size: 8rem;
+color: #fff;
+}
+
+.choices__font-awe--imperial:hover {
+    color: #ED2939;
+}
+
+.choices__font-awe--crimson:hover {
+    color: #DC143C;
+}
+
+.choices__font-awe--cardinal:hover {
+    color: 	#C51E3A;
+}
+
+/* Play--again */
+
+.body--play-again {
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.winner-announcer {
+    text-align: center;
+    font-size: 2.1rem;
+}
+
+.winner-announcer__h1 {
+    font-size: 5rem;
+    margin-bottom: 13px;
+}
+
+.winner-announcer__h1--fade-in {
+    color: #000;
+    animation: WA__h1--fade-in 10s;
+    animation-delay: .5s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes WA__h1--fade-in {
+    0% {color: #000}
+    50% {color: #fff}
+    100% {color: #000}
+}
+
+.winner-announcer__p--fade-in {
+    color: #000;
+    animation: WA__p--fade-in 8s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes WA__p--fade-in {
+    0% {color: #000}
+    50% {color: #fff}
+    100% {color: #000}
+}
+
+.winner-announcer__p--margin {
+    margin: 5px;
+}
+
+.WA__btn-div__btn {
+    height: 50px;
+    width: 50px;
+   border-radius: 50%;
+   border: none;
+   margin-left: 5px;
+   cursor: pointer;
+}
+
+.WA__btn-div__btn--fade-in {
+    animation: btn--fade-in 5s 4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btn--fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+.WA__btn-div__btn--red {
+    background-color: red;
+    
+}
+
+.WA__btn-div__btn--red:hover {
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: inset -10px 0px 0px silver;
+    color: silver;
+    transition: .5s;
+}
+
+.WA__btn-div__btn--blue {
+    background-color: blue;
+}
+
+.WA__btn-div__btn--blue:hover {
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: inset 10px 0px 0px silver;
+    color: silver;
+    transition: .5s;
+}
+
+
+/* score-board--play-again */
+.score-board__h3--play-again-white {
+    color: #fff;
+}
