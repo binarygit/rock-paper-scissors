@@ -1,35 +1,74 @@
 let humanPoints = 0;
 let computerPoints = 0;
 
-window.addEventListener('click', onButtonClick); 
+// window.addEventListener('click', onButtonClick);
 
-function onButtonClick(e) {
+const stBtn = document.querySelector('#stBtn');
+stBtn.addEventListener('click', afterClick);
 
-    if(e.explicitOriginalTarget.id == 'stBtn') { 
-        afterClick()
-    }
-    else if(e.explicitOriginalTarget.id == 'playAgain') {
-        playAgain();
-    }
-    else {
+const rock = document.querySelectorAll('#rock');
+console.log(rock);
+rock.forEach(rock => rock.addEventListener('click', (e) => {
+    game('rock');
+    e.stopPropagation();
+}));
 
-        let humanInput = getHumanInput(e);
-        let compInput = getComputerInput();
-        if(!humanInput){return}
-        // the game runs, even if humanInput returns undefined. (!humanInput) doesn't let that happen
+const paper = document.querySelectorAll('#paper');
+paper.forEach(paper => paper.addEventListener('click', (e) => {
+    game('paper');
+    e.stopPropagation();
+}));
 
-        else{
+const scissors = document.querySelectorAll('#scissors');
+scissors.forEach(scissors => scissors.addEventListener('click', (e) => {
+    game('scissors');
+    e.stopPropagation();
+}));
 
-        let logicStorer = gameLogic(humanInput, compInput);
-        choiceDisplayer(humanInput, compInput);
-        pointKeeper(logicStorer);
-        headerHide();
-        
-         }
-        
-    }
-    
+
+function game(humanInput) {
+    compInput = getComputerInput();
+    let logicStorer = gameLogic(humanInput, compInput);
+    console.log(logicStorer);
+    choiceDisplayer(humanInput, compInput);
+    pointKeeper(logicStorer);
+    headerHide();
 }
+
+
+const playAgn = document.querySelector('#playAgain');
+
+playAgn.addEventListener('click', playAgain);
+
+
+// function onButtonClick(e) {
+//     console.log(e);
+
+//     if(e.explicitOriginalTarget.id == 'stBtn') { 
+//         afterClick()
+//     }
+//     else if(e.explicitOriginalTarget.id == 'playAgain') {
+//         playAgain();
+//     }
+//     else {
+
+//         let humanInput = getHumanInput(e);
+//         let compInput = getComputerInput();
+//         if(!humanInput){return}
+//         // the game runs, even if humanInput returns undefined. (!humanInput) doesn't let that happen
+
+//         else{
+
+//         let logicStorer = gameLogic(humanInput, compInput);
+//         choiceDisplayer(humanInput, compInput);
+//         pointKeeper(logicStorer);
+//         headerHide();
+        
+//          }
+        
+//     }
+    
+// }
 
 function playAgain() {
 
@@ -92,6 +131,7 @@ async function makeBody() {
     await introAnimation();
 
     const divs = document.querySelectorAll('.div--none');
+    console.log(divs);
     
     for(let i=0; i<2; i++){
         divs[i].classList.remove('div--none');
@@ -112,11 +152,11 @@ function introAnimation() {
     setTimeout(function(){
         div.classList.remove("st-btn-replacer")
         div.classList.add("transition-to-big-box")
-    }, 5600)
+    }, 5600);
     
     setTimeout(function(){
         div.classList.add("transition-big-box-swell")
-    }, 7000)
+    }, 7000);
 
     return new Promise(resolve => {
         setTimeout(function() {
@@ -125,7 +165,7 @@ function introAnimation() {
         body.classList.remove('body__before-intro');
         body.classList.add('body__after-intro')
         resolve('resolved');
-    }, 10300)
+    }, 10300);
 });
 
 }
@@ -342,15 +382,3 @@ function headerHide() {
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-  
