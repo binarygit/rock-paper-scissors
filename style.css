@@ -52,7 +52,7 @@ animation-fill-mode: forwards;
 
 @keyframes intro-start {
 0% {transform: scale(0.9)}
-6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10} 
+6.25% {transform: scale(1); border-color: #ea4e10; border-shadow: 0 0 1rem #ea4e10}
 12.5% {transform: scale(0.9)}
 25% {transform: scale(1)}
 50% {transform: scale(1); border-color: #d8af1a; border-shadow: 0 0 1rem #d8af1a}
@@ -61,8 +61,8 @@ animation-fill-mode: forwards;
 }
 
 .transition-to-big-box {
-background: black; 
-padding: 50px; 
+background: black;
+padding: 50px;
 transform: scale(4.4);
 border: 2px solid #bc5025;
 box-shadow: 0 0 1rem #bc5025;
@@ -93,7 +93,7 @@ align-items: center;
 /* header */
 
 .header{
-text-align: center; 
+text-align: center;
 padding: 20px;
 
 }
@@ -232,7 +232,7 @@ cursor: pointer;
 
 .choices__rock:hover,.choices__paper:hover,.choices__scissor:hover {
 border-color: rgb(167, 41, 41);
-border-radius: 5px;   
+border-radius: 5px;
 color: rgb(216, 49, 49);
 }
 
@@ -275,7 +275,7 @@ color: #fff;
     color: #000;
     animation: WA__h1--fade-in 10s;
     animation-delay: .5s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
 }
 
 @keyframes WA__h1--fade-in {
@@ -288,7 +288,7 @@ color: #fff;
     color: #000;
     animation: WA__p--fade-in 8s;
     animation-delay: 1.5s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
 }
 
 @keyframes WA__p--fade-in {
@@ -322,8 +322,8 @@ color: #fff;
 }
 
 .WA__btn-div__btn--red {
-    background-color: red;
-    
+    background-color: #bd2e2e;
+
 }
 
 .WA__btn-div__btn--red:hover {
@@ -331,11 +331,11 @@ color: #fff;
     border-radius: 50%;
     box-shadow: inset -10px 0px 0px silver;
     color: silver;
-    transition: .5s;
+    transition: 1s;
 }
 
 .WA__btn-div__btn--blue {
-    background-color: blue;
+    background-color: #4040fd;
 }
 
 .WA__btn-div__btn--blue:hover {
@@ -343,7 +343,7 @@ color: #fff;
     border-radius: 50%;
     box-shadow: inset 10px 0px 0px silver;
     color: silver;
-    transition: .5s;
+    transition: 1s;
 }
 
 

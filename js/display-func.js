@@ -46,7 +46,7 @@ function displayMatchWinner(MatchWinner) {
     if(scoreBoard.classList.contains('score-board__h3--play-again-white')){
         scoreBoard.classList.remove('score-board__h3--play-again-white');
     }
-    
+
     if(MatchWinner.indexOf('Human') > -1) {
         scoreBoard.classList.remove('score-board__h3--blue');
         scoreBoard.classList.add('score-board__h3--red');
@@ -61,27 +61,29 @@ function displayMatchWinner(MatchWinner) {
         scoreBoard.classList.remove('score-board__h3--red', 'score-board__h3--blue')
         scoreBoard.textContent = `${MatchWinner}`;
     }
-    
+
 }
 
 
 function displayGameWinner(winner) {
-    
-    //adding new properties to body to make play-again layout 
+
+    //adding new properties to body to make play-again layout
     const body = document.querySelector('body');
 
     body.classList.add('body--play-again');
 
+
+// disabling outro
     // checking if the intro audio is playing, if it is, then stop and play outro
-    const introAudio = document.querySelector('#introSong');
-    if(introAudio.play()) {
-        introAudio.pause();
-        introAudio.currentTime = 0;
-    }
-    
-    const outroAudio = document.querySelector('#gameFinSong');
-    outroAudio.play();
-    
+    // const introAudio = document.querySelector('#introSong');
+    // if(introAudio.play()) {
+    //     introAudio.pause();
+    //     introAudio.currentTime = 0;
+    // }
+    //
+    // const outroAudio = document.querySelector('#gameFinSong');
+    // outroAudio.play();
+
     // displaying the final score and game winner
     const p = document.querySelector('#finalScoreDisplayer');
     p.textContent = `The score was ${humanPoints} to ${computerPoints} : human to computer.`;
@@ -90,7 +92,7 @@ function displayGameWinner(winner) {
 
     if(winner == 'Computer') {
         winnerh1.textContent = "I'm sorry, but you've lost.";
-        
+
     } else {
         winnerh1.textContent = "Congratulations, You won the game";
 

@@ -19,8 +19,7 @@ async function makeBody() {
     await initializeIntroAnimation();
 
     const divs = document.querySelectorAll('.div--none');
-    console.log(divs);
-    
+
     for(let i=0; i<2; i++){
         divs[i].classList.remove('div--none');
     }
@@ -41,7 +40,7 @@ function initializeIntroAnimation() {
         div.classList.remove("st-btn-replacer")
         div.classList.add("transition-to-big-box")
     }, 5600);
-    
+
     setTimeout(function(){
         div.classList.add("transition-big-box-swell")
     }, 7000);
