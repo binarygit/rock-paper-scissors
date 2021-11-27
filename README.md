@@ -8,4 +8,4 @@ Made using: HTML, CSS and JavaScript
 
 Live: 
 
-https://highbouncinglover.github.io/rock-paper-scissors/
+https://binarygit.github.io/rock-paper-scissors/
